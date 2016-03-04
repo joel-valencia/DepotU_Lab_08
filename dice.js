@@ -1,6 +1,7 @@
 var allDice = [];
 
 var Die = function() {
+    this.value = 0;
     this.roll = function() {
         this.value = Math.ceil(Math.random() * 6);
         $('#' + this.id).text(this.value);
@@ -14,7 +15,7 @@ $(document).ready(function() {
         allDice.push(new Die());
         allDice[allDice.length - 1].roll();
         allDice[allDice.length - 1].id = allDice.length - 1;
-        $('body').append('<div class="die" id=' + (allDice.length - 1) + '>' + allDice[allDice.length - 1].value + '</div>')
+        $('.container').append('<div class="die" id=' + (allDice.length - 1) + '>' + allDice[allDice.length - 1].value + '</div>')
     });
     
     $('#roll').on("click", function() {
