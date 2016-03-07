@@ -7,6 +7,10 @@ var Die = function() {
         $('#' + this.id).text(this.value);
         return this.value;
     }
+    this.insert = function() {
+        console.log("appending");
+        $('.container').append('<div class="die" id=' + this.id + '>' + this.value + '</div>');
+    }
 }
 
 
@@ -15,7 +19,7 @@ $(document).ready(function() {
         allDice.push(new Die());
         allDice[allDice.length - 1].roll();
         allDice[allDice.length - 1].id = allDice.length - 1;
-        $('.container').append('<div class="die" id=' + (allDice.length - 1) + '>' + allDice[allDice.length - 1].value + '</div>')
+        allDice[allDice.length - 1].insert();
     });
     
     $('#roll').on("click", function() {
