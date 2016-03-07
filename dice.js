@@ -1,7 +1,7 @@
 var allDice = [];
 
 var Die = function() {
-    this.value = 0;
+    this.value = null;
     this.roll = function() {
         this.value = Math.ceil(Math.random() * 6);
         $('#' + this.id).text(this.value);
@@ -11,6 +11,11 @@ var Die = function() {
         $('.container').append('<div class="die" id=' + this.id + '>' + this.value + '</div>');
         $("#" + this.id).on("click", function() {
             allDice[this.id].update();
+        });
+        $("#" + this.id).on("dblclick", function() {
+            this.remove();
+            delete allDice[this.id];
+            console.log(allDice);
         });
     }
     this.update = function() {
@@ -29,23 +34,19 @@ $(document).ready(function() {
     });
     
     $('#roll').on("click", function() {
-        for (var i = 0; i < allDice.length; i++) {
+        console.log(allDice);
+        for (var i in allDice) {
             allDice[i].roll();
         }
     });
     
     $('#sum').on("click", function() {
         var sum = 0;
-        for (var i = 0; i < allDice.length; i++) {
+        for (var i in allDice) {
             sum += allDice[i].value;
         }
         alert("Sum of all dice: " + sum);
-    });
-    
-    
-
-    
-    
+    });   
 });
 
 
