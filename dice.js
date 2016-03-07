@@ -25,8 +25,15 @@ $(document).ready(function() {
     $('#roll').on("click", function() {
         for (var i = 0; i < allDice.length; i++) {
             allDice[i].roll();
-            console.log(allDice[i].value);
         }
+    });
+    
+    $('#sum').on("click", function() {
+        var sum = 0;
+        for (var i = 0; i < allDice.length; i++) {
+            sum += allDice[i].value;
+        }
+        alert("Sum of all dice: " + sum);
     });
 
     
