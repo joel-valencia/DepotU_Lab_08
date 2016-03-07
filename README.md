@@ -69,3 +69,9 @@ This lab will combine principles of HTML, CSS, JavaScript, Accessing/Creating/Mo
 * You can set a property on your Die object that holds the Div representing the die on the page. Example: die.htmlElement = some_reference_to_the_HTML_div
 * You can use a global array in your JS file that contains each die object you create.
 * Clicking the `Roll Dice` button can loop through that array, where you will have access to the properties and functions of each instance of Die.
+
+**_Extra Credit_**
+Try extending the functionality of this lab to support the following features. They are listed in order from easiest to hardest to implement.
+* Create a `sumDice` function and a button that triggers it. It should add up the current face value of all the dice on the page and display an alert with the sum.
+* Add a feature where clicking on a die on the page causes just that one die to roll, updating its face value
+* Add a feature where double clicking on a die on the page causes that die to be removed from the page (remember to remove the die object from any arrays it may be in too).
