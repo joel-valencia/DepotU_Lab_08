@@ -8,8 +8,14 @@ var Die = function() {
         return this.value;
     }
     this.insert = function() {
-        console.log("appending");
         $('.container').append('<div class="die" id=' + this.id + '>' + this.value + '</div>');
+        $("#" + this.id).on("click", function() {
+            allDice[this.id].update();
+        });
+    }
+    this.update = function() {
+        this.roll();
+        $("#" + this.id).html(this.value);
     }
 }
 
@@ -35,6 +41,8 @@ $(document).ready(function() {
         }
         alert("Sum of all dice: " + sum);
     });
+    
+    
 
     
     
